@@ -1,29 +1,41 @@
 # Simple Calculator App
-# Created by [Sriram]
-
-
-
+# Created by Sriram
 
 def calculator():
-    print("Simple Calculator")
-    print("Operations: +  -  *  /")
+    print("\nSimple Calculator")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
 
-    num1 = float(input("Enter first number: "))
-    op = input("Enter operator: ")
-    num2 = float(input("Enter second number: "))
+    choice = input("Enter choice (1-4): ")
 
-    if op == "+":
+    try:
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+    except:
+        print("Invalid input! Please enter numbers.")
+        return
+
+    if choice == "1":
         print("Result:", num1 + num2)
-    elif op == "-":
+    elif choice == "2":
         print("Result:", num1 - num2)
-    elif op == "*":
+    elif choice == "3":
         print("Result:", num1 * num2)
-    elif op == "/":
+    elif choice == "4":
         if num2 != 0:
             print("Result:", num1 / num2)
         else:
             print("Error: Division by zero")
     else:
-        print("Invalid operator")
+        print("Invalid choice")
 
-calculator()
+
+# Loop to run calculator continuously
+while True:
+    calculator()
+    again = input("Do you want to continue? (yes/no): ")
+    if again.lower() != "yes":
+        print("Goodbye!")
+        break
